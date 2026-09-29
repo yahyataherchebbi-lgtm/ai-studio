@@ -39,12 +39,10 @@
   </nav>
 
   <script>
-   <script>
 function chooseImage(type) {
 
   if (type === 'image') {
     const input = document.createElement('input');
-
     input.type = 'file';
     input.accept = 'image/*';
 
@@ -65,6 +63,7 @@ function chooseImage(type) {
         preview.style.maxHeight = '80%';
         preview.style.zIndex = '9999';
         preview.style.borderRadius = '15px';
+        preview.style.cursor = 'pointer';
 
         document.body.appendChild(preview);
 
@@ -73,16 +72,21 @@ function chooseImage(type) {
           URL.revokeObjectURL(imageURL);
         };
       }
+      
+      // Nettoyage de l'élément input
+      input.remove();
     };
 
     input.click();
 
-      if (type === 'lift_up_clothes') {
-        alert("Action sélectionnée : Soulever les vêtements (Lift up clothes)");
-      } else if (type === 'undress') {
-        alert("Action sélectionnée : Déshabiller (Undress)");
-      } else {
-        alert("Fonction sélectionnée : " + type);
-      }
-    }
-  </script>
+  } else if (type === 'lift_up_clothes') {
+    alert("Action sélectionnée : Soulever les vêtements (Lift up clothes)");
+
+  } else if (type === 'hair_style') { // Correction de la condition vide
+    alert("Action sélectionnée : Style cheveux (Hair style)");
+
+  } else {
+    alert("Fonction sélectionnée : " + type);
+  }
+}
+</script>
