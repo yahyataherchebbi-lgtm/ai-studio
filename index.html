@@ -39,7 +39,44 @@
   </nav>
 
   <script>
-    function chooseImage(type) {
+   <script>
+function chooseImage(type) {
+
+  if (type === 'image') {
+    const input = document.createElement('input');
+
+    input.type = 'file';
+    input.accept = 'image/*';
+
+    input.onchange = function(event) {
+      const file = event.target.files[0];
+
+      if (file) {
+        const imageURL = URL.createObjectURL(file);
+
+        const preview = document.createElement('img');
+        preview.src = imageURL;
+
+        preview.style.position = 'fixed';
+        preview.style.top = '50%';
+        preview.style.left = '50%';
+        preview.style.transform = 'translate(-50%, -50%)';
+        preview.style.maxWidth = '90%';
+        preview.style.maxHeight = '80%';
+        preview.style.zIndex = '9999';
+        preview.style.borderRadius = '15px';
+
+        document.body.appendChild(preview);
+
+        preview.onclick = function() {
+          preview.remove();
+          URL.revokeObjectURL(imageURL);
+        };
+      }
+    };
+
+    input.click();
+
       if (type === 'lift_up_clothes') {
         alert("Action sélectionnée : Soulever les vêtements (Lift up clothes)");
       } else if (type === 'undress') {
@@ -49,6 +86,3 @@
       }
     }
   </script>
-
-</body>
-</html>
