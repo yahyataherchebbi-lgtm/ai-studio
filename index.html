@@ -1,16 +1,50 @@
-</div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application</title>
+  <style>
+    /* Navigation fixe en bas de page */
+    nav {
+      display: flex;
+      justify-content: space-around;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #f1f1f1;
+      padding: 10px 0;
+      border-top: 1px solid #ccc;
+    }
+    nav div {
+      text-align: center;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
 
-<nav>
-  <div>✨<br>Découvrir</div>
-  <div>🎬<br>Vidéo</div>
-  <div>👤<br>Profil</div>
-</nav>
+  <div id="content">
+    <!-- Contenu principal ici -->
+  </div>
 
-<script>
-function chooseImage(type) {
-  alert("Fonction sélectionnée : " + type);
-}
-</script>
+  <nav>
+    <div onclick="chooseImage('lift_up_clothes')">👗<br>Lift up clothes</div>
+    <div onclick="chooseImage('undress')">👙<br>Undress</div>
+    <div onclick="chooseImage('profil')">👤<br>Profil</div>
+  </nav>
+
+  <script>
+    function chooseImage(type) {
+      if (type === 'lift_up_clothes') {
+        alert("Action sélectionnée : Soulever les vêtements (Lift up clothes)");
+      } else if (type === 'undress') {
+        alert("Action sélectionnée : Déshabiller (Undress)");
+      } else {
+        alert("Fonction sélectionnée : " + type);
+      }
+    }
+  </script>
 
 </body>
 </html>
